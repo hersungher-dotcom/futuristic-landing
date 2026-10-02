@@ -1,138 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuristic Landing</title>
-    <style>
-        :root {
-            --bg-dark: #0a0a0a;
-            --neon-blue: #00ffff;
-            --neon-purple: #ff00ff;
-            --neon-pink: #ff00ff;
-            --glass: rgba(255,255,255,0.1);
-            --shadow: 0 0 20px var(--neon-blue);
-        }
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-dark);
-            color: #fff;
-            overflow-x: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .container {
-            width: 90%;
-            max-width: 800px;
-            padding: 2rem;
-            background: var(--glass);
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        h1 {
-            font-size: 3rem;
-            background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-        }
-        p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: var(--shadow);
-        }
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px var(--neon-blue), 0 0 60px var(--neon-purple);
-        }
-        .glitch {
-            position: relative;
-        }
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .glitch::before {
-            left: 2px;
-            text-shadow: -2px 0 var(--neon-blue);
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim 3s infinite linear alternate-reverse;
-        }
-        .glitch::after {
-            left: -2px;
-            text-shadow: 2px 0 var(--neon-purple);
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim 2s infinite linear;
-        }
-        @keyframes glitch-anim {
-            0% { clip: rect(44px, 450px, 56px, 0); }
-            20% { clip: rect(48px, 450px, 52px, 0); }
-            40% { clip: rect(50px, 450px, 50px, 0); }
-            60% { clip: rect(48px, 450px, 52px, 0); }
-            80% { clip: rect(46px, 450px, 54px, 0); }
-            100% { clip: rect(47px, 450px, 53px, 0); }
-        }
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .star {
-            position: absolute;
-            background: #fff;
-            border-radius: 50%;
-            opacity: 0.5;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#03050a">
+  <meta name="description" content="Future-ready AI systems, autonomous agents and secure digital infrastructure.">
+  <title>FUTURE IS NOW — AI Systems</title>
+  <style>
+    :root{
+      --bg:#03050a;--panel:rgba(8,14,26,.62);--line:rgba(121,184,255,.16);
+      --cyan:#5ee7ff;--blue:#5b8cff;--violet:#b36bff;--text:#eef6ff;--muted:#91a4bd;
+      --max:1180px;--ease:cubic-bezier(.2,.8,.2,1);
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}.page{position:relative;isolation:isolate}
+    #matrix{position:fixed;inset:0;width:100%;height:100%;z-index:-5;opacity:.62}
+    .aurora,.grid,.noise{position:fixed;inset:0;pointer-events:none;z-index:-4}
+    .aurora{background:radial-gradient(circle at 18% 18%,rgba(60,130,255,.14),transparent 30%),radial-gradient(circle at 82% 30%,rgba(178,82,255,.12),transparent 28%),radial-gradient(circle at 50% 90%,rgba(0,220,255,.08),transparent 35%)}
+    .grid{background-image:linear-gradient(rgba(120,190,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(120,190,255,.035) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,transparent,black 18%,black 80%,transparent)}
+    .noise{opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(var(--max),calc(100% - 32px));z-index:20;display:flex;align-items:center;justify-content:space-between;padding:12px 14px 12px 18px;border:1px solid var(--line);background:rgba(3,7,14,.66);backdrop-filter:blur(18px);border-radius:18px;box-shadow:0 16px 60px rgba(0,0,0,.28)}
+    .brand{font-weight:900;letter-spacing:.12em;font-size:.82rem}.brand span{color:var(--cyan)}
+    .navlinks{display:flex;gap:6px}.navlinks a{font-size:.78rem;color:#aebed2;padding:9px 12px;border-radius:10px;transition:.25s}.navlinks a:hover{color:#fff;background:rgba(255,255,255,.06)}
+    .nav-cta{padding:9px 14px;border:1px solid rgba(94,231,255,.3);border-radius:10px;font-size:.78rem;color:#dffaff}
+    main{position:relative}
+    .hero{min-height:100vh;display:grid;place-items:center;padding:150px 0 90px}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid rgba(94,231,255,.2);background:rgba(94,231,255,.045);border-radius:999px;color:#a9efff;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px var(--cyan);animation:pulse 1.8s infinite}
+    h1{font-size:clamp(3.5rem,7vw,7.3rem);line-height:.88;letter-spacing:-.065em;margin:22px 0 24px;max-width:850px}
+    .gradient{background:linear-gradient(100deg,#fff 5%,#bcefff 45%,#9c7cff 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{max-width:660px;color:var(--muted);font-size:clamp(1rem,1.8vw,1.18rem);line-height:1.75}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+    .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:12px;font-weight:750;font-size:.88rem;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;overflow:hidden}
+    .btn:hover{transform:translateY(-3px)}
+    .primary{background:linear-gradient(100deg,#53e6ff,#657dff 60%,#ad62ff);box-shadow:0 12px 40px rgba(74,151,255,.25)}
+    .secondary{border:1px solid var(--line);background:rgba(255,255,255,.035);color:#d8e6f7}
+    .status-row{display:flex;gap:22px;margin-top:34px;color:#73869e;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em}
+    .status-row strong{color:#d7e7f7;display:block;margin-top:5px;letter-spacing:0}
+    .terminal{position:relative;border:1px solid rgba(123,188,255,.2);background:linear-gradient(145deg,rgba(11,20,36,.78),rgba(5,8,17,.76));border-radius:24px;box-shadow:0 30px 100px rgba(0,0,0,.4),inset 0 1px rgba(255,255,255,.06);overflow:hidden;transform:perspective(900px) rotateY(-4deg);transition:transform .5s var(--ease)}
+    .terminal:hover{transform:perspective(900px) rotateY(0deg) translateY(-6px)}
+    .term-top{display:flex;align-items:center;gap:7px;padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.025)}
+    .orb{width:8px;height:8px;border-radius:50%;background:#ff5f57}.orb:nth-child(2){background:#febc2e}.orb:nth-child(3){background:#28c840}.term-title{margin-left:auto;color:#6e829d;font:11px ui-monospace,monospace}
+    .terminal pre{min-height:350px;margin:0;padding:26px;color:#9db0c8;font:12px/2 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap}
+    .terminal .ok{color:#65f4c2}.terminal .cyan{color:#67e8ff}.terminal .violet{color:#bd8cff}.cursor{display:inline-block;width:7px;height:14px;background:#65e7ff;vertical-align:-2px;animation:blink 1s infinite}
+    .scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.3;animation:scan 4s linear infinite}
+    section{padding:120px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}.kicker{font-size:.7rem;letter-spacing:.2em;color:#66ddff;text-transform:uppercase}.section-head h2{font-size:clamp(2rem,4vw,3.7rem);letter-spacing:-.04em;margin:10px 0 0;max-width:700px}.section-head p{max-width:420px;color:var(--muted);line-height:1.7}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{position:relative;padding:26px;border:1px solid var(--line);background:rgba(7,13,24,.56);border-radius:18px;min-height:220px;overflow:hidden;transition:.35s var(--ease)}.card:hover{transform:translateY(-7px);border-color:rgba(94,231,255,.35);background:rgba(10,19,34,.72)}.icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;border:1px solid rgba(94,231,255,.22);color:var(--cyan);background:rgba(94,231,255,.05);font-family:monospace}.card h3{margin:24px 0 9px}.card p{margin:0;color:var(--muted);line-height:1.65;font-size:.92rem}.card::after{content:"";position:absolute;width:100px;height:100px;right:-50px;bottom:-50px;background:var(--violet);filter:blur(60px);opacity:.12}
+    .agents{display:grid;grid-template-columns:1fr 1fr;gap:14px}.agent{padding:24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(140deg,rgba(11,18,32,.72),rgba(4,8,16,.55));display:grid;grid-template-columns:55px 1fr;gap:16px}.agent b{font-size:1rem}.agent small{display:block;color:#6e829d;margin-top:6px;line-height:1.6}.agent .num{font:700 12px ui-monospace;color:#63e4ff;padding-top:5px}
+    .architecture{border:1px solid var(--line);border-radius:24px;background:rgba(4,9,17,.6);padding:34px;overflow:hidden}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:center}.node{padding:18px 12px;text-align:center;border:1px solid rgba(103,214,255,.18);border-radius:14px;background:rgba(255,255,255,.025);font-size:.78rem}.node span{display:block;color:#647a94;font-size:.64rem;margin-top:6px}.arrow{color:#5fe4ff;text-align:center;opacity:.7}
+    .security{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.shield{aspect-ratio:1;border-radius:30px;border:1px solid rgba(94,231,255,.18);display:grid;place-items:center;background:radial-gradient(circle,rgba(94,231,255,.1),transparent 52%),rgba(7,13,24,.55);box-shadow:inset 0 0 90px rgba(94,231,255,.05)}.shield-core{width:150px;height:150px;border:1px solid rgba(94,231,255,.5);border-radius:50%;display:grid;place-items:center;box-shadow:0 0 80px rgba(94,231,255,.16);position:relative}.shield-core:before,.shield-core:after{content:"";position:absolute;border:1px dashed rgba(179,107,255,.45);border-radius:50%;inset:-28px;animation:spin 13s linear infinite}.shield-core:after{inset:-52px;animation-direction:reverse;animation-duration:19s}.shield-core b{font:800 28px ui-monospace;color:#baf7ff}.checklist{display:grid;gap:13px;margin-top:26px}.check{display:flex;gap:11px;align-items:start;color:#aebed1;font-size:.9rem}.check i{font-style:normal;color:#61efbd}
+    footer{padding:55px 0 70px;border-top:1px solid var(--line);color:#657a93;font-size:.78rem}.footer-row{display:flex;justify-content:space-between;gap:20px}.footer-brand{color:#c9d8e9;font-weight:800;letter-spacing:.12em}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.reveal.visible{opacity:1;transform:none}
+    @keyframes pulse{50%{opacity:.4;transform:scale(.72)}}@keyframes blink{50%{opacity:0}}@keyframes scan{from{top:-5%}to{top:105%}}@keyframes spin{to{transform:rotate(360deg)}}
+    @media(max-width:900px){.hero-grid,.security{grid-template-columns:1fr}.hero{padding-top:130px}.terminal{max-width:720px}.cards{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.agents{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:20px}.navlinks{display:none}}
+    @media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 26px))}nav{top:10px}.nav-cta{display:none}h1{font-size:clamp(3rem,17vw,5rem)}.hero{padding-bottom:50px}.status-row{gap:12px;flex-wrap:wrap}.terminal pre{min-height:300px;font-size:10px}.shield{max-width:430px;margin:auto}section{padding:85px 0}.footer-row{display:block}.footer-row span{display:block;margin-top:12px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{transition:none}.terminal,.card,.btn{transition:none}#matrix{display:none}}
+  </style>
 </head>
 <body>
-    <div class="stars" id="stars"></div>
-    <div class="container">
-        <h1 class="glitch" data-text="FUTURE IS NOW">FUTURE IS NOW</h1>
-        <p>Welcome to the next generation of digital experiences. Explore what's possible when technology meets imagination.</p>
-        <a href="#" class="btn">Get Started</a>
-    </div>
+  <canvas id="matrix" aria-hidden="true"></canvas><div class="aurora"></div><div class="grid"></div><div class="noise"></div>
+  <div class="page">
+    <nav>
+      <a class="brand" href="#top">FUTURE<span>.SYS</span></a>
+      <div class="navlinks"><a href="#platform">Platform</a><a href="#agents">Agents</a><a href="#architecture">Architecture</a><a href="#security">Security</a></div>
+      <a class="nav-cta" href="https://github.com/hersungher-dotcom/futuristic-landing" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </nav>
+    <main id="top">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="reveal">
+            <div class="eyebrow"><span class="dot"></span> Autonomous intelligence online</div>
+            <h1><span class="gradient">BUILD THE</span><br>FUTURE.</h1>
+            <p class="hero-copy">Intelligent systems, autonomous agents and secure infrastructure — engineered to turn ambitious ideas into digital products that move.</p>
+            <div class="actions"><a class="btn primary" href="#platform">Explore platform <span>→</span></a><a class="btn secondary" href="https://github.com/hersungher-dotcom/futuristic-landing" target="_blank" rel="noreferrer">View source ↗</a></div>
+            <div class="status-row"><div>System<strong>ONLINE</strong></div><div>Agents<strong>05 ACTIVE</strong></div><div>Security<strong>VERIFIED</strong></div></div>
+          </div>
+          <div class="terminal reveal">
+            <div class="scan"></div><div class="term-top"><span class="orb"></span><span class="orb"></span><span class="orb"></span><span class="term-title">future.sys / core</span></div>
+            <pre><span class="cyan">┌─ SYSTEM BOOT</span>
+<span class="cyan">│</span> initializing autonomous environment...
+<span class="cyan">│</span> neural orchestration ........ <span class="ok">OK</span>
+<span class="cyan">│</span> agent mesh .................. <span class="ok">CONNECTED</span>
+<span class="cyan">│</span> threat analysis ............. <span class="ok">SECURE</span>
+<span class="cyan">│</span>
+<span class="violet">├─ ACTIVE WORKFLOW</span>
+<span class="violet">│</span> > analyze_request()
+<span class="violet">│</span> > delegate_agents()
+<span class="violet">│</span> > build_solution()
+<span class="violet">│</span> > validate_security()
+<span class="violet">│</span> > deploy()
+<span class="violet">│</span>
+<span class="cyan">└─ STATUS:</span> <span class="ok">READY</span> <span class="cursor"></span></pre>
+          </div>
+        </div>
+      </section>
 
-    <script>
-        // Generate stars
-        const starsContainer = document.getElementById('stars');
-        const starCount = 150;
-        for (let i = 0; i < starCount; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            star.style.width = `${Math.random() * 3}px`;
-            star.style.height = star.style.width;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.animationDelay = `${Math.random() * 5}s`;
-            starsContainer.appendChild(star);
-        }
-    </script>
+      <section id="platform">
+        <div class="wrap">
+          <div class="section-head reveal"><div><div class="kicker">01 / Platform</div><h2>One system. Every layer of execution.</h2></div><p>From the first idea to deployment, intelligent workflows coordinate engineering, security and delivery without losing human control.</p></div>
+          <div class="cards">
+            <article class="card reveal"><div class="icon">AI</div><h3>Intelligence</h3><p>Context-aware reasoning and orchestration designed around real product workflows instead of isolated prompts.</p></article>
+            <article class="card reveal"><div class="icon">⌁</div><h3>Automation</h3><p>Turn repetitive development operations into reliable pipelines with observable steps and explicit handoffs.</p></article>
+            <article class="card reveal"><div class="icon">◈</div><h3>Infrastructure</h3><p>Connect repositories, deployments, data and services into a clean architecture that can evolve with the product.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="agents">
+        <div class="wrap">
+          <div class="section-head reveal"><div><div class="kicker">02 / Agent mesh</div><h2>A specialized team, coordinated by one brain.</h2></div><p>Each agent has a bounded responsibility. The orchestrator connects the pieces and keeps the workflow visible.</p></div>
+          <div class="agents">
+            <div class="agent reveal"><div class="num">01</div><div><b>AI Manager</b><small>Breaks requirements into verifiable tasks, coordinates agents and tracks delivery state.</small></div></div>
+            <div class="agent reveal"><div class="num">02</div><div><b>Developer Agent</b><small>Builds interfaces, APIs and integrations while respecting the project architecture.</small></div></div>
+            <div class="agent reveal"><div class="num">03</div><div><b>Security Agent</b><small>Reviews attack surfaces, secrets, dependencies and common application security risks.</small></div></div>
+            <div class="agent reveal"><div class="num">04</div><div><b>Research Agent</b><small>Collects technical context and converts it into concise, actionable engineering intelligence.</small></div></div>
+            <div class="agent reveal"><div class="num">05</div><div><b>Deployment Agent</b><small>Prepares releases, validates configuration and coordinates the path to production.</small></div></div>
+            <div class="agent reveal"><div class="num">06</div><div><b>Portfolio Agent</b><small>Transforms finished work into structured project records and public-facing showcases.</small></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture">
+        <div class="wrap">
+          <div class="section-head reveal"><div><div class="kicker">03 / Architecture</div><h2>Idea → agents → code → validation → production.</h2></div><p>A transparent execution chain makes automation easier to inspect, debug and improve.</p></div>
+          <div class="architecture reveal"><div class="flow"><div class="node">REQUEST<span>Human intent</span></div><div class="arrow">→</div><div class="node">ORCHESTRATE<span>Task graph</span></div><div class="arrow">→</div><div class="node">BUILD<span>Code & data</span></div></div><div style="height:10px"></div><div class="flow"><div class="node">SECURE<span>Review & checks</span></div><div class="arrow">→</div><div class="node">DEPLOY<span>Release</span></div><div class="arrow">→</div><div class="node">OBSERVE<span>Feedback loop</span></div></div></div>
+        </div>
+      </section>
+
+      <section id="security">
+        <div class="wrap security">
+          <div class="shield reveal"><div class="shield-core"><b>✓</b></div></div>
+          <div class="reveal"><div class="kicker">04 / Security</div><h2>Automation with guardrails.</h2><p class="hero-copy" style="font-size:1rem">Modern automation should be powerful without becoming opaque. Separate responsibilities, validate outputs and keep sensitive credentials outside the interface.</p><div class="checklist"><div class="check"><i>✓</i> Explicit agent responsibilities and bounded workflows</div><div class="check"><i>✓</i> Repository-first source control and reviewable changes</div><div class="check"><i>✓</i> Environment secrets kept out of client-side code</div><div class="check"><i>✓</i> Verification before a workflow is considered complete</div></div></div>
+        </div>
+      </section>
+    </main>
+    <footer><div class="wrap footer-row"><span class="footer-brand">FUTURE.SYS</span><span>Designed for intelligent builders · 2026</span><span>GitHub · Vercel · Secure by design</span></div></footer>
+  </div>
+  <script>
+    const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');
+    let w,h,columns,drops,fontSize=15,raf;
+    const chars='01ABCDEFGHIJKLMNOPQRSTUVWXYZ<>[]{}//::01';
+    function resize(){w=canvas.width=innerWidth*devicePixelRatio;h=canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);columns=Math.ceil(innerWidth/fontSize);drops=Array.from({length:columns},()=>Math.random()*-40)}
+    function draw(){ctx.fillStyle='rgba(3,5,10,.075)';ctx.fillRect(0,0,innerWidth,innerHeight);ctx.font=fontSize+'px ui-monospace,monospace';for(let i=0;i<columns;i++){const x=i*fontSize,y=drops[i]*fontSize;ctx.fillStyle=Math.random()>.965?'rgba(170,230,255,.85)':'rgba(65,180,205,.26)';ctx.fillText(chars[(Math.random()*chars.length)|0],x,y);if(y>innerHeight&&Math.random()>.975)drops[i]=Math.random()*-20;drops[i]+=.62+Math.random()*.4}raf=requestAnimationFrame(draw)}
+    addEventListener('resize',resize,{passive:true});resize();draw();
+    const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    addEventListener('pointermove',e=>{document.documentElement.style.setProperty('--mx',e.clientX+'px');document.documentElement.style.setProperty('--my',e.clientY+'px')},{passive:true});
+  </script>
 </body>
 </html>
